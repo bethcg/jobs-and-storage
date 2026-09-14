@@ -7,8 +7,8 @@ folder. Both folders are configurable via environment variables so that,
 in RenkuLab, you can point them at mounted data connectors instead of the
 copies committed to the repository:
 
-    INPUT_DATA_DIR   where training_data.csv is read from   (default: ../data-input)
-    OUTPUT_DATA_DIR  where the model + reports are written  (default: ../results)
+    INPUT_DATA_DIR   where training_data.csv is read from   (default: data-input)
+    OUTPUT_DATA_DIR  where the model + reports are written  (default: results)
 
 Everything the script prints goes to the job log, so you can follow progress
 from the project page while the job runs in the background.
@@ -38,8 +38,8 @@ from sklearn.metrics import (
 from sklearn.model_selection import train_test_split
 
 # --- Configuration (folders + a couple of hyperparameters) -------------------
-INPUT_DIR = Path(os.environ.get("INPUT_DATA_DIR", "../data-input"))
-OUTPUT_DIR = Path(os.environ.get("OUTPUT_DATA_DIR", "../results"))
+INPUT_DIR = Path(os.environ.get("INPUT_DATA_DIR", "data-input"))
+OUTPUT_DIR = Path(os.environ.get("OUTPUT_DATA_DIR", "results"))
 N_ESTIMATORS = int(os.environ.get("N_ESTIMATORS", "300"))
 MAX_DEPTH = os.environ.get("MAX_DEPTH")  # None => unlimited
 MAX_DEPTH = int(MAX_DEPTH) if MAX_DEPTH else None
